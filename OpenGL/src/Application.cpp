@@ -54,8 +54,7 @@ int main(void)
         glfwPollEvents();
 
         // Wait one second
-        while ((glfwGetTime() - initial_time_s) <= 1/25) {
-        }
+        // while ((glfwGetTime() - initial_time_s) <= 1/25) {}
     }
 
     glfwTerminate();

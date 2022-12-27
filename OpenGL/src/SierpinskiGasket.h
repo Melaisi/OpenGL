@@ -25,5 +25,9 @@ public:
 	Point random_point_inside_a_triangle();
 	Point get_vector_from_points(float p1_x,float p1_y,float p2_x,float p2_y);
 	Point get_a_new_point();
-	 
+
+	void immediate_mode_graphic();
+	void retained_mode_graphic();
+	void initial_draw();
+	void draw_initial_triangle();
 };
