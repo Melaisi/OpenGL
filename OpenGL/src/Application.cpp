@@ -2,6 +2,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "SierpinskiGasket.h"
 
 int main(void)
 {
@@ -32,23 +33,29 @@ int main(void)
     // print out gl version
     std::cout << glGetString(GL_VERSION) <<std::endl;
 
+    // Test SierpinskiGasket
+    SierpinskiGasket sg;
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
+        // Get inital time
+        double initial_time_s = glfwGetTime();
+
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glBegin(GL_TRIANGLES);
-        glVertex2f(-0.5f, -0.5f);
-        glVertex2f( 0.0f,  0.5f);
-        glVertex2f( 0.5f, -0.5f);
-        glEnd();
+        sg.draw();
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
         /* Poll for and process events */
         glfwPollEvents();
+
+        // Wait one second
+        while ((glfwGetTime() - initial_time_s) <= 1/25) {
+        }
     }
 
     glfwTerminate();
