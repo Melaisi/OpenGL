@@ -2,12 +2,16 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
+// Classes to draw different things.
 #include "SierpinskiGasket.h"
+
+#include "Drawable.h"
+#include "Sphere.h"
+
 
 int main(void)
 {
-
-
     GLFWwindow* window;
 
     /* Initialize the library */
@@ -16,7 +20,7 @@ int main(void)
 
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1280, 720, "Sierpinski Gasket", NULL, NULL);
+    window = glfwCreateWindow(1280, 720, "Chapter2", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -34,7 +38,10 @@ int main(void)
     std::cout << glGetString(GL_VERSION) <<std::endl;
 
     // Test SierpinskiGasket
-    SierpinskiGasket sg;
+    //SierpinskiGasket sg;
+
+    // Test a sphere class
+    Drawable* model = new Sphere();
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -45,7 +52,7 @@ int main(void)
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        sg.draw();
+        model->draw();
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
